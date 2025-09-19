@@ -21,19 +21,12 @@ export default function LoginPage() {
 
      if (user) {
         localStorage.setItem('authToken', 'fake-jwt-token');
+        localStorage.setItem('currentUser', JSON.stringify(user));
         alert('Login successful!');
         window.location.href = '/';
     } else {
         alert('Invalid email or password');
     }
-    // // Mock authentication
-    // if (email === 'jinyoung@example.com' && password === '123456') {
-    //   localStorage.setItem('authToken', 'fake-jwt-token');
-    //   alert('Login successful!');
-    //   window.location.href = '/'; // redirect to homepage
-    // } else {
-    //   alert('Invalid credentials');
-    // }
   };
 
   return (

@@ -8,6 +8,7 @@ export default function Navbar() {
     const handleLogout = () => {
         // Clear user data from localStorage
         localStorage.removeItem('authToken');
+        localStorage.removeItem('currentUser');
         window.location.href = '/login'; // redirect to Login after Logout
     };
 
@@ -33,9 +34,14 @@ export default function Navbar() {
                     </>
                 )}
                 {isLoggedIn && (
+                    <>
+                    <Button color="inherit" component={Link} to="/gallery">
+                        My Gallery
+                    </Button>
                     <Button color="inherit" onClick={handleLogout}>
                         Logout
                     </Button>
+                    </>
                 )}
               </Box>
             </Toolbar>
